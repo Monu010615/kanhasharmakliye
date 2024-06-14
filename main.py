@@ -35,7 +35,7 @@ async def account_login(bot: Client, m: Message):
 
 @bot.on_message(filters.command("stop") & filters.user(ADMINS))
 async def restart_handler(_, m):
-    await m.reply_text("**STOPPED**🫂", True)
+    await m.reply_text("**STOPPED**🚫", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
@@ -45,7 +45,7 @@ async def account_login(bot: Client, m: Message):
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
         x = await input.download()
-        await bot.send_document(-1002028651469, x)
+        await bot.send_document(-1002101234349, x)
         await input.delete(True)
         file_name, ext = os.path.splitext(os.path.basename(x))
         credit = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
@@ -156,7 +156,7 @@ async def account_login(bot: Client, m: Message):
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
-            name = f'{str(count).zfill(3)})〔«𝙼𝚎𝚗𝚍𝚊𝚡»〕{name1[:60]}'
+            name = f'{str(count).zfill(3)})〔«xTaR»〕{name1[:60]}'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
@@ -169,8 +169,8 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:                               
-                cc = f'** {str(count).zfill(3)}.** {name1} ({res})〔«𝙼𝚎𝚗𝚍𝚊𝚡»〕.mkv\n**Batch Name :**`{b_name}`\n\n**Downloaded by : {CR}**'
-                cc1 = f'** {str(count).zfill(3)}.** {name1}〔«𝙼𝚎𝚗𝚍𝚊𝚡»〕.pdf \n**Batch Name :**`{b_name}`\n\n**Downloaded by : {CR}**'
+                cc = f'** {str(count).zfill(3)}.** {name1} ({res})〔«xTaR»〕.mkv\n**Batch Name :**`{b_name}`\n\n**Downloaded by : {CR}**'
+                cc1 = f'** {str(count).zfill(3)}.** {name1}〔«xTaR»〕.pdf \n**Batch Name :**`{b_name}`\n\n**Downloaded by : {CR}**'
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
@@ -188,7 +188,7 @@ async def account_login(bot: Client, m: Message):
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
                         copy = await bot.send_document(chat_id=m.chat.id,document=f'{name}.pdf', caption=cc1)
-                        await copy.copy(chat_id = -1002028651469)
+                        await copy.copy(chat_id = -1002101234349)
                         count += 1
                         os.remove(f'{name}.pdf')
                     except FloodWait as e:
@@ -196,7 +196,7 @@ async def account_login(bot: Client, m: Message):
                         time.sleep(e.x)
                         continue
                 else:
-                    prog = await m.reply_text(f"**Downloading:-**\n\n** Video Name :-** `{name}\nQuality - {raw_text2}`\n**link:**`{url}`\n\n **bot made by Mendax**")
+                    prog = await m.reply_text(f"**Downloading:-**\n\n** Video Name :-** `{name}\nQuality - {raw_text2}`\n**link:**`{url}`\n\n **bot made by xTaR**")
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
                     await prog.delete(True)
