@@ -22,6 +22,17 @@ import sys
 import re
 import os
 
+
+OWNER = int(os.environ.get("OWNER", 7270470326))      #replace your user id 
+try: 
+    ADMINS=[] 
+    for x in (os.environ.get("ADMINS", "6449296681 7270470326 6959409818 5427627648").split()):     ##replace your user id  (for multiple userid use white space) e.g. "123456 987456" <<- two userid ka example haa yee 
+        # jitni userid dalni ha usti daloo ...
+        ADMINS.append(int(x)) 
+except ValueError: 
+        raise Exception("Your Admins list does not contain valid integers.") 
+ADMINS.append(OWNER)
+
 bot = Client("bot",
              bot_token= "7164700338:AAFxiACi45vVRvUt6nPVWy2bvJevDm9660w",
              api_id= 28404611,
